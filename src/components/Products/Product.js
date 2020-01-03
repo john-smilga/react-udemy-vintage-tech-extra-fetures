@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import img from "../../assets/mainBcg.jpeg";
 // impt
 import PropTypes from "prop-types";
+import img from "../../assets/mainBcg.jpeg";
 export default function Product({ image, title, id, price }) {
   return (
     <article className="product">
@@ -14,12 +14,11 @@ export default function Product({ image, title, id, price }) {
       </div>
       <div className="product-footer">
         <p className="product-title">{title || "default title"}</p>
-        <p className="product-price">${price || 15.99}</p>
+        <p className="product-price">${price || 0}</p>
       </div>
     </article>
   );
 }
-
 Product.propTypes = {
   image: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,

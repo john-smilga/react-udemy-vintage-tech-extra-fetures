@@ -271,7 +271,8 @@ Product List
 .section {
   padding: 4rem 0;
 }
-.section-title {
+.section-title,
+.filter-title {
   font-size: 2rem;
   text-transform: capitalize;
   letter-spacing: var(--mainSpacing);
@@ -307,7 +308,9 @@ Product List
 }
 .product img {
   transition: var(--mainTransition);
+  min-height: 10rem;
 }
+
 .product:hover img {
   opacity: 0.3;
 }
@@ -698,4 +701,38 @@ Pagination Buttons
 .prev-page-btn:hover,
 .next-page-btn:hover {
   color: var(--mainBlack);
+}
+/* 
+====== 
+Filters Section
+======
+*/
+.filter-title {
+  margin-top: 6rem;
+}
+.filters-section {
+  width: var(--smallWidth);
+  margin: 0 auto;
+  max-width: var(--fullWidth);
+  padding-top: 4rem;
+  margin-bottom: -2rem;
+}
+.filters-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 2rem;
+}
+.filters-form .form-control {
+  display: block;
+}
+.filters-form label {
+  text-transform: capitalize;
+}
+
+.price-group p {
+  margin-bottom: 0;
+  text-transform: capitalize;
+}
+.price-group label {
+  display: block;
 }

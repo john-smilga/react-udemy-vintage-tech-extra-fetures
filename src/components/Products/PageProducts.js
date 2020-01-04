@@ -52,7 +52,9 @@ export default function PaginatedProducts() {
     );
   } else {
     return (
-      <h3 className="filter-title">you search did not return any products</h3>
+      <h3 className="search-errors">
+        unfortunately your search query did not return any products
+      </h3>
     );
   }
 }

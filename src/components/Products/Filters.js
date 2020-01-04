@@ -55,7 +55,7 @@ export default function Filters() {
           {/* end of free shipping */}
         </div>
         {/* price */}
-        <div className="form-group price-group">
+        <div className="price-group">
           <p>price</p>
           <label>
             <input
@@ -101,7 +101,8 @@ export default function Filters() {
         </div>
         {/* end of price */}
       </form>
-      <h6>{sorted.length} products</h6>
+      <h6>total products :{sorted.flat().length} </h6>
+      <hr />
     </section>
   );
 }

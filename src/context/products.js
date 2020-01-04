@@ -8,7 +8,7 @@ export default function ProductProvider({ children }) {
   const [loading, setLoading] = React.useState(false);
   const [products, setProducts] = React.useState([]);
   const [featured, setFeatured] = React.useState([]);
-  // new state values
+  // extra state values
   const [sorted, setSorted] = React.useState([]);
   const [page, setPage] = React.useState(0);
   const [filters, setFilters] = React.useState({
@@ -39,9 +39,7 @@ export default function ProductProvider({ children }) {
     setLoading(true);
     axios.get(`${url}/products`).then(response => {
       const featured = featuredProducts(flattenProducts(response.data));
-      const products = flattenProducts(response.data).sort(
-        (a, b) => a.price - b.price
-      );
+      const products = flattenProducts(response.data);
       setProducts(products);
       setSorted(paginate(products));
       setFeatured(featured);
@@ -50,7 +48,7 @@ export default function ProductProvider({ children }) {
     return () => {};
   }, []);
   React.useEffect(() => {
-    let newProducts = [...products];
+    let newProducts = [...products].sort((a, b) => a.price - b.price);
     const { search, category, shipping, price } = filters;
     //
     if (category !== "all") {
@@ -70,9 +68,17 @@ export default function ProductProvider({ children }) {
         }
       });
     }
+    if (search !== "") {
+      newProducts = newProducts.filter(item => {
+        let title = item.title.toLowerCase().trim();
+        return title.startsWith(search) ? item : null;
+      });
+    }
+
+    setPage(0);
 
     setSorted(paginate(newProducts));
-  }, [filters]);
+  }, [filters, products]);
   return (
     <ProductContext.Provider
       value={{

@@ -29,8 +29,8 @@ Variables
   --lightShadow: 2px 5px 3px 0px rgba(0, 0, 0, 0.5);
   --darkShadow: 4px 10px 5px 0px rgba(0, 0, 0, 0.5);
   --mainBorderRadius: 0.25rem;
-  --smallWidth: 85vw;
   --maxWidth: 40rem;
+  --smallWidth: 85vw;
   --fullWidth: 1170px;
 }
 /* 
@@ -651,4 +651,51 @@ Scroll Button
 .show-scroll-btn {
   z-index: 100;
   opacity: 1;
+}
+/* 
+====== 
+Pagination Buttons
+======
+*/
+.pagination-buttons {
+  width: var(--smallWidth);
+  max-width: var(--fullWidth);
+  margin: 0 auto;
+  margin-top: -4.5rem;
+  padding-bottom: 2rem;
+}
+
+.pagination-buttons article {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.page-btn {
+  margin: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+  background: transparent;
+  border: 2px solid var(--primaryColor);
+  transition: var(--mainTransition);
+}
+.page-btn:hover {
+  background: var(--primaryColor);
+}
+.page-btn-current {
+  background: var(--primaryColor);
+}
+.prev-page-btn,
+.next-page-btn {
+  font-size: 1.2rem;
+  margin: 0.5rem;
+  font-size: 2rem;
+  background: transparent;
+  color: var(--primaryColor);
+  transition: var(--mainTransition);
+  cursor: pointer;
+  border: none;
+}
+.prev-page-btn:hover,
+.next-page-btn:hover {
+  color: var(--mainBlack);
 }

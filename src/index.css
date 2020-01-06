@@ -668,39 +668,45 @@ Pagination Buttons
   padding-bottom: 2rem;
 }
 
-.pagination-buttons article {
+.pagination-buttons {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  align-items: center;
 }
-.page-btn {
+.page-btn,
+.prev-page-btn,
+.next-page-btn {
   margin: 0.5rem;
   padding: 0.25rem 0.5rem;
   cursor: pointer;
   background: transparent;
-  border: 2px solid var(--primaryColor);
   transition: var(--mainTransition);
+  font-size: 1.2rem;
+  color: var(--primaryColor);
+  border: none;
 }
 .page-btn:hover {
   background: var(--primaryColor);
+  color: var(--mainWhite);
 }
 .page-btn-current {
   background: var(--primaryColor);
+  color: var(--mainWhite);
 }
 .prev-page-btn,
 .next-page-btn {
-  font-size: 1.2rem;
-  margin: 0.5rem;
-  font-size: 2rem;
-  background: transparent;
-  color: var(--primaryColor);
-  transition: var(--mainTransition);
-  cursor: pointer;
   border: none;
+  color: var(--primaryColor);
+  font-size: 1.75rem;
+  display: flex;
+  align-items: center;
+  transition: var(--mainTransition);
 }
 .prev-page-btn:hover,
 .next-page-btn:hover {
-  color: var(--mainBlack);
+  background: var(--primaryColor);
+  color: var(--mainWhite);
 }
 /* 
 ====== 

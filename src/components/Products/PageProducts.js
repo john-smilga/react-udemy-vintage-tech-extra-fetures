@@ -12,41 +12,37 @@ export default function PaginatedProducts() {
 
         {/* buttons */}
         {sorted.length > 1 && (
-          <div className="pagination-buttons">
-            {/* prev next buttons */}
-            <article>
-              {page > 0 && (
+          <article className="pagination-buttons">
+            {/* prev button */}
+            {page > 0 && (
+              <button
+                onClick={() => changePage(page - 1)}
+                className="prev-page-btn"
+              >
+                <FaAngleDoubleLeft></FaAngleDoubleLeft>
+              </button>
+            )}
+            {sorted.map((_, index) => {
+              return (
                 <button
-                  onClick={() => changePage(page - 1)}
-                  className="prev-page-btn"
+                  onClick={() => changePage(index)}
+                  key={index}
+                  className={`page-btn ${page === index && `page-btn-current`}`}
                 >
-                  <FaAngleDoubleLeft></FaAngleDoubleLeft>
+                  {index + 1}
                 </button>
-              )}
-              {page < sorted.length - 1 && (
-                <button
-                  onClick={() => changePage(page + 1)}
-                  className="next-page-btn"
-                >
-                  <FaAngleDoubleRight></FaAngleDoubleRight>
-                </button>
-              )}
-            </article>
-            <article>
-              {sorted.map((_, index) => {
-                return (
-                  <button
-                    onClick={() => changePage(index)}
-                    key={index}
-                    className={`page-btn ${page === index &&
-                      `page-btn-current`}`}
-                  >
-                    {index + 1}
-                  </button>
-                );
-              })}
-            </article>
-          </div>
+              );
+            })}
+            {/* next button */}
+            {page < sorted.length - 1 && (
+              <button
+                onClick={() => changePage(page + 1)}
+                className="next-page-btn"
+              >
+                <FaAngleDoubleRight></FaAngleDoubleRight>
+              </button>
+            )}
+          </article>
         )}
       </section>
     );

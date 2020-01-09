@@ -733,7 +733,7 @@ Filters Section
   text-transform: capitalize;
   margin-bottom: 0.25rem;
 }
-input[type="text"] {
+.filters-form input[type="text"] {
   border: 0.5px solid var(--mainBlack);
   font-size: 0.8rem;
   padding: 0.2rem;
@@ -746,7 +746,7 @@ input[type="text"] {
   border-color: var(--mainBlack);
   border-width: 0.5px;
 }
-input[type="checkbox"] {
+.filters-form input[type="checkbox"] {
   margin-right: 0.5rem;
 }
 .price-group p {

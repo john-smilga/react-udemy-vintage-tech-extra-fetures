@@ -47,7 +47,7 @@ export default function ProductProvider({ children }) {
     });
     return () => {};
   }, []);
-  React.useEffect(() => {
+  React.useLayoutEffect(() => {
     let newProducts = [...products].sort((a, b) => a.price - b.price);
     const { search, category, shipping, price } = filters;
     //
